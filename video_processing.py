@@ -9,3 +9,5 @@ def read_video():
 
 def read_video(video_file: str):
     vid_capture = cv2.VideoCapture('Resources/Image_sequence/Cars%04d.jpg')
+
+
