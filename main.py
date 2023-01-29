@@ -4,12 +4,12 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import gui
 
-    gui.MyGui()
+
 import video_processing as vp
 def main_fcn():
     # Use a breakpoint in the code line below to debug your script.
-    video_capture = vp.video_source_setup()
-    vp.read_video(video_capture)
+    gui.MyGui()
+
 
 
 

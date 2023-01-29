@@ -1,5 +1,5 @@
 import PySimpleGUI as gui
-
+import video_processing as vp
 
 class MyGui:
 
@@ -69,10 +69,12 @@ class MyGui:
             [gui.Button("Exit", size=(10, 1))],
         ]
         window = gui.Window("OpenCV Integration", layout, location=(800, 400))
-
+        video_capture = vp.video_source_setup()
         while True:
             event, values = window.read(timeout=20)  # nutne aby sa zobrazilo okno a aby sa updatovali eventy z okna
             if event == "Exit" or event == gui.WIN_CLOSED:
+                break
+            if not vp.read_video(video_capture):
                 break
 
         window.close()

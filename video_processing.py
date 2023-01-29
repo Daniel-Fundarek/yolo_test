@@ -26,26 +26,18 @@ def video_source_setup(video_file_path):
 def read_video(vid_capture: cv2.VideoCapture):
     if not vid_capture.isOpened():
         print("Error opening the video file")
-        return
+        return False
     else:
-        # Get frame rate information
-        fps = int(vid_capture.get(cv2.CAP_PROP_FPS))
-        print("Frame Rate : ", fps, "frames per second")
-
-        # Get frame count
-        frame_count = vid_capture.get(cv2.CAP_PROP_FRAME_COUNT)
-        print("Frame count : ", frame_count)
-
-    while (vid_capture.isOpened()):
         # vCapture.read() methods returns a tuple, first element is a bool
         # and the second is frame
 
         ret, frame = vid_capture.read()
-        if ret == True:
+        if ret:
             cv2.imshow('Frame', frame)
             k = cv2.waitKey(20)
             # 113 is ASCII code for q key
             if k == 113:
-                break
+                return False
         else:
-            break
+            return False
+        return True
